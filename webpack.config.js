@@ -9,4 +9,5 @@ module.exports = {
     filename: 'index.bundle.js'
   },
   devtool: 'source-map',
+  watch: true,
 };
