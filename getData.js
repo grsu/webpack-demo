@@ -10,10 +10,16 @@ function handeResponse(response) {
   });
 }
 
-module.exports = function getData() {
-  return fetch('https://httpbin.org/ip')
-    .then(handeResponse)
-    .catch(function(err) {
-      console.log('Fetch Error :-S', err);
-    });
+module.exports = async function getData() {
+  let data;
+
+  try {
+    const response = await fetch('https://httpbin.org/ip');
+
+    data = await handeResponse(response);
+  } catch (err) {
+    console.log('Fetch Error :-S', err);
+  }
+
+  return data;
 }
